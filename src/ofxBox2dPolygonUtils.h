@@ -156,9 +156,9 @@ static bool insidePolygon(const ofVec2f & p, const vector<ofVec2f> & polygon){
 	p1 = polygon[0];
 	for (i=1;i<=N;i++) {
 		p2 = polygon[i % N];
-		if (y > MIN(p1.y,p2.y)) {
-			if (y <= MAX(p1.y,p2.y)) {
-				if (x <= MAX(p1.x,p2.x)) {
+		if (y > min(p1.y,p2.y)) {
+			if (y <= max(p1.y,p2.y)) {
+				if (x <= max(p1.x,p2.x)) {
 					if (p1.y != p2.y) {
 						xinters = (y-p1.y)*(p2.x-p1.x)/(p2.y-p1.y)+p1.x;
 						if (p1.x == p2.x || x <= xinters)
@@ -188,9 +188,9 @@ static bool insidePolygon(const ofVec2f & p, const ofPolyline &polygon){
 	p1 = polygon[0];
 	for (i=1;i<=N;i++) {
 		p2 = polygon[i % N];
-		if (y > MIN(p1.y,p2.y)) {
-			if (y <= MAX(p1.y,p2.y)) {
-				if (x <= MAX(p1.x,p2.x)) {
+		if (y > min(p1.y,p2.y)) {
+			if (y <= max(p1.y,p2.y)) {
+				if (x <= max(p1.x,p2.x)) {
 					if (p1.y != p2.y) {
 						xinters = (y-p1.y)*(p2.x-p1.x)/(p2.y-p1.y)+p1.x;
 						if (p1.x == p2.x || x <= xinters)

@@ -1,7 +1,7 @@
 ofxBox2d
 =====================================
 
-![ofxBox2d](http://farm7.staticflickr.com/6010/5964216482_a11debc021_b.jpg)
+[![ofxBox2d](http://farm7.staticflickr.com/6010/5964216482_a11debc021_b.jpg)](https://vimeo.com/26747704)
 
 Introduction
 ------------
@@ -10,10 +10,18 @@ This is a simple wrapper for Box2d using Openframeworks. The examples below are 
 Thanks,
 Todd
 
+Installation
+------------
+
+First, pick the branch that matches your version of openFrameworks:
+
+* OF [stable](https://github.com/openframeworks/openFrameworks/tree/stable) (0.9.8): use [ofxBox2d/stable](https://github.com/vanderlin/ofxBox2d/tree/stable)
+* OF [master](https://github.com/openframeworks/openFrameworks) (0.10.0): use [ofxBox2d/master](https://github.com/vanderlin/ofxBox2d/)
+
 Instructions
 ------------
 
-When making a vector of objects you need to be careful. You either need to make a vector of pointers of use the `shared_ptr` object.     
+When making a vector of objects you need to be careful. You either need to make a vector of pointers or use the `shared_ptr` object.     
     
 Everytime you push into the vector `circles` the object is destroyed and the created.
 This causing issues for the `b2dBody body` object owned by Box2d.       
@@ -33,7 +41,7 @@ circles.push_back(circle);
 vector <shared_ptr<ofxBox2dCircle> > circles;
 
 // now add a circle to the vector
-shared_ptr<ofxBox2dCircle> circle = shared_ptr<ofxBox2dCircle>(new ofxBox2dCircle);
+auto circle = std::make_shared<ofxBox2dCircle>();
 
 // to grab the pointer you use the get() function of shared_ptr (std::shared_ptr)
 circle.get()->setPhysics(3.0, 0.53, 0.1);
